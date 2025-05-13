@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: Finnhub Stock API
+  version: 1.0.0
+  description: >
+    OpenAPI spec for real-time stock quotes using Finnhub’s `/quote` endpoint.
+
+servers:
+  - url: https://finnhub.io/api/v1
+
+paths:
+  /quote:
+    get:
+      summary: Get real-time quote
+      description: Returns real-time price quote for a given stock symbol.
+      operationId: getQuote
+      parameters:
+        - name: symbol
+          in: query
+          required: true
+          description: Stock symbol (e.g. AAPL, TSLA)
+          schema:
+            type: string
+        - name: token
+          in: query
+          required: true
+          description: Your API key from Finnhub
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with quote data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+              example:
+                c: 193.86
+                h: 194.15
+                l: 191.81
+                o: 192.15
+                pc: 191.88
+                t: 1715558400
+        '401':
+          description: Unauthorized – invalid or missing API key
+        '429':
+          description: Too Many Requests – rate limit exceeded
+
+components:
+  schemas:
+    QuoteResponse:
+      type: object
+      properties:
+        c:
+          type: number
+          description: Current price
+        h:
+          type: number
+          description: High price of the day
+        l:
+          type: number
+          description: Low price of the day
+        o:
+          type: number
+          description: Open price of the day
+        pc:
+          type: number
+          description: Previous close price
+        t:
+          type: integer
+          description: Timestamp (Unix)
