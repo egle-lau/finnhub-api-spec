@@ -56,6 +56,14 @@ components:
           type: number
           description: Current price
           example: 210.79
+        d:
+          type: number
+          description: Absolute change from previous close
+          example: 12.26
+        dp:
+          type: number
+          description: Percent change from previous close
+          example: 6.1754
         h:
           type: number
           description: High price of the day
