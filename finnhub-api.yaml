@@ -50,22 +50,29 @@ components:
   schemas:
     QuoteResponse:
       type: object
+      required: [c, h, l, o, pc, t]
       properties:
         c:
           type: number
           description: Current price
+          example: 210.79
         h:
           type: number
           description: High price of the day
+          example: 211.2679
         l:
           type: number
           description: Low price of the day
+          example: 206.75
         o:
           type: number
           description: Open price of the day
+          example: 210.97
         pc:
           type: number
           description: Previous close price
+          example: 198.53
         t:
           type: integer
           description: Timestamp (Unix)
+          example: 1747080000
