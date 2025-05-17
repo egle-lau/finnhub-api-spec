@@ -1,11 +1,5 @@
 # 📈 Finnhub-Api-Spec
 This project demonstrates the end-to-end documentation and integration workflow of a financial data API using the **Finnhub.io** OpenAPI specification. It showcases API documentation, client generation, testing, and Python scripting.
-## 🗂 Project Structure
-finnhub-api-spec/
-finnhub-api.yaml # OpenAPI 3.0 specification (imported from Finnhub)
-test_quote.py # Python script calling the live /quote endpoint
-python-client/ # Auto-generated Python client SDK
-README.md # Project README file
 
 ## 🧪 Running the Python Test Script
 The script `test_quote.py` demonstrates a real-world use of the `/quote` endpoint via the generated client.
